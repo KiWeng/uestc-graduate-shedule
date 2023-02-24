@@ -10,11 +10,13 @@
 ### 导出课表
 
 ![alt](./assets/fig-xkjg.png)
+
 访问[研究生系统/选课结果查询](https://yjsjy.uestc.edu.cn/pyxx/pygl/xkjg/index)就可以看到多出了一个选择框和一个按钮，在选择框中选择了本学期第一周后就可以点按按钮以`.ics`格式下载你的课表。
 
 ### 导出考表
 
 ![alt](./assets/fig-kskcxx.png)
+
 访问[研究生系统/考试查询](https://yjsjy.uestc.edu.cn/pyxx/pygl/kskcxx/index)就可以看到多出了一个按钮，点按按钮后就可以`.ics`格式下载你的考表。
 
 ## 致谢
