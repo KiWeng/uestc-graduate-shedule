@@ -94,7 +94,6 @@
                 onSelect: function (date) {
                     start_monday_date = new Date(date);
                     start_monday_date.setDate(start_monday_date.getDate() - ((start_monday_date.getDay() - 1 + 7)) % 7)
-                    console.log(start_monday_date)
                     week_date_table = [];
                     for (let i = 0; i < 20; i++) {
                         let week_arr = []
@@ -177,8 +176,6 @@
 
                 const [start_week, end_week] = [week_duration[1], week_duration[2]]
 
-                // console.log(`${week_duration}`)
-
                 const han2nubmer_week = {
                     '一': 0,
                     '二': 1,
@@ -195,8 +192,6 @@
                     const weekday = han2nubmer_week[weekday_han]
                     const [start_time, end_time] = [timeTable[(element[2]) - 1][0], timeTable[(element[3]) - 1][1]]
 
-                    // console.log(`${element} ${start_week} ${end_week}`)
-
                     // 起止时间
                     const event_start_time = new Date(start_monday_date);
                     event_start_time.setDate(event_start_time.getDate() + (start_week - 1) * 7 + weekday);
@@ -209,8 +204,6 @@
                     event_end_time.setMinutes(end_time.split(":")[1]);
 
                     const duration = end_week - start_week + 1
-
-                    // console.log(`${course_info['name']}, ${event_start_time}, ${event_end_time}`)
 
                     insert_weekly_events(
                         course_info['name'],
