@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         电子科技大学研究生课表考表导出
 // @namespace    http://tampermonkey.net/
-// @version      0.1.1
+// @version      0.1.2
 // @description  以ICS格式导出电子科技大学研究生课表考表
 // @author       KiWeng
 // @match        https://yjsjy.uestc.edu.cn/pyxx/pygl/xkjg/*
@@ -25,35 +25,6 @@
         container.appendChild(addStyle);
     };
     addStyle("https://cdn.jsdelivr.net/npm/pikaday@1.8.2/css/pikaday.css");
-
-    Date.prototype.format = (fmt) => {
-        var o = {
-            "M+": this.getMonth() + 1, //月份
-            "d+": this.getDate(), //日
-            "h+": this.getHours(), //小时
-            "m+": this.getMinutes(), //分
-            "s+": this.getSeconds(), //秒
-            "q+": Math.floor((this.getMonth() + 3) / 3), //季度
-            S: this.getMilliseconds(), //毫秒
-        };
-        if (/(y+)/.test(fmt)) {
-            fmt = fmt.replace(
-                RegExp.$1,
-                (this.getFullYear() + "").substr(4 - RegExp.$1.length)
-            );
-        }
-        for (var k in o) {
-            if (new RegExp("(" + k + ")").test(fmt)) {
-                fmt = fmt.replace(
-                    RegExp.$1,
-                    RegExp.$1.length == 1
-                        ? o[k]
-                        : ("00" + o[k]).substr(("" + o[k]).length)
-                );
-            }
-        }
-        return fmt;
-    };
 
     let start_monday_date = new Date("2022-02-21");
     let week_date_table = []; // 本学期所有日期，默认到20周结束
