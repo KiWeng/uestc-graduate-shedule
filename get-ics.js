@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         电子科技大学研究生课表考表导出
 // @namespace    http://tampermonkey.net/
-// @version      0.1.2
+// @version      0.1.3
 // @description  以ICS格式导出电子科技大学研究生课表考表
 // @author       KiWeng
 // @match        https://yjsjy.uestc.edu.cn/pyxx/pygl/xkjg/*
@@ -184,6 +184,8 @@
             };
             const description = `任课教师：${course_info["teacher"]}
             班级说明：${course_info["description"]}`;
+
+            if (course_info["time_location"] === "") continue; // ignore courses with empty location
 
             for (let line of course_info["time_location"].split("\n")) {
                 // Every line is like '1-10周，星期二第3-4节 星期四第3-4节 (二教307)'
